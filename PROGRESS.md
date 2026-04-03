@@ -39,7 +39,10 @@
 - Open questions: Plaid Transfer vs Auth product for card charging — confirm before Phase 3
 
 ## Phase 2 — Auth
-(Agents will update here)
+- [x] [2026-04-03] [backend-engineer] src/services/auth.service.ts — register (bcrypt), login (constant-time compare), refresh (DB-backed token), logout (revoke) — DONE
+- [x] [2026-04-03] [backend-engineer] src/routes/auth.ts — POST /auth/register, /login, /refresh, /logout; per-route rate limit (10/15min) — DONE
+- [x] [2026-04-03] [backend-engineer] src/__tests__/auth.test.ts — 11 tests covering register, login, refresh, logout — DONE
+- [x] [2026-04-03] [backend-engineer] src/app.ts — wired /api/v1/auth router — DONE
 
 ## Phase 3 — Card Linking
 (Agents will update here)

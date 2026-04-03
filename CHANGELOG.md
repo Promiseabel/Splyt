@@ -19,6 +19,10 @@
 - Phase 1: Jest + ts-jest setup with health check tests
 - Phase 1: ESLint (TypeScript) + Prettier config
 - Phase 1: .env.example with all required variables documented
+- Phase 2: Auth service — register, login (constant-time), refresh (DB-backed), logout
+- Phase 2: Auth routes — POST /auth/register, /login, /refresh, /logout with per-route rate limiting
+- Phase 2: Refresh tokens hashed (SHA-256) before DB storage; never stored raw
+- Phase 2: Auth test suite (11 tests, all mocked)
 
 ### Changed
 (nothing yet)

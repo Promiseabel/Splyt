@@ -23,10 +23,11 @@
 - [ ] TODO — Initialize GitHub repo + branch protection rules — (manual)
 
 ## Auth
-- [ ] TODO — POST /auth/register — backend-engineer
-- [ ] TODO — POST /auth/login — backend-engineer
-- [ ] TODO — POST /auth/refresh — backend-engineer
-- [ ] TODO — JWT middleware — backend-engineer
+- [x] DONE — POST /auth/register — backend-engineer — 2026-04-03
+- [x] DONE — POST /auth/login — backend-engineer — 2026-04-03
+- [x] DONE — POST /auth/refresh — backend-engineer — 2026-04-03
+- [x] DONE — POST /auth/logout — backend-engineer — 2026-04-03
+- [x] DONE — JWT middleware — backend-engineer — 2026-04-03 (Phase 1)
 
 ## Card Linking (Plaid)
 - [ ] TODO — GET /plaid/link-token — backend-engineer
