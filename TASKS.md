@@ -36,8 +36,8 @@
 - [x] DONE — DELETE /cards/:id — backend-engineer — 2026-04-03
 
 ## Virtual Card (Stripe Issuing)
-- [ ] TODO — POST /virtual-card (create) — backend-engineer
-- [ ] TODO — GET /virtual-card (fetch details + balance) — backend-engineer
+- [x] DONE — POST /virtual-card (create) — backend-engineer — 2026-04-03
+- [x] DONE — GET /virtual-card (fetch details + balance) — backend-engineer — 2026-04-03
 
 ## Split Configuration
 - [ ] TODO — POST /split-config (set or update split percentages) — backend-engineer

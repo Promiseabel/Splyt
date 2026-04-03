@@ -51,7 +51,9 @@
 - [x] [2026-04-03] [backend-engineer] src/__tests__/cards.test.ts — 12 tests covering all routes + encrypt/decrypt round-trip, tamper detection, no-token-in-response assertion — DONE
 
 ## Phase 4 — Virtual Card
-(Agents will update here)
+- [x] [2026-04-03] [backend-engineer] src/services/virtualCard.service.ts — createVirtualCard (Stripe cardholder + card, one-per-user), getVirtualCard (DB balance + live Stripe metadata), creditBalance (internal for top-up) — DONE
+- [x] [2026-04-03] [backend-engineer] src/routes/virtualCard.ts — POST /virtual-card (201, 409 duplicate), GET /virtual-card (404 if missing); both behind requireAuth — DONE
+- [x] [2026-04-03] [backend-engineer] src/__tests__/virtualCard.test.ts — 7 tests: create flow, duplicate guard, cardholder-before-card ordering, balance from DB not Stripe, 404, auth — DONE
 
 ## Phase 5 — Split Config
 (Agents will update here)

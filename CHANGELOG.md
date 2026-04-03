@@ -27,6 +27,9 @@
 - Phase 3: Card linking service — Plaid link-token, exchange-token, list, delete with Plaid revocation
 - Phase 3: Card routes — GET /plaid/link-token, POST /plaid/exchange-token, GET /cards, DELETE /cards/:id
 - Phase 3: Card test suite (12 tests) including encrypt round-trip and tamper detection
+- Phase 4: Virtual card service — Stripe Issuing cardholder + card creation, one per user
+- Phase 4: Virtual card routes — POST /virtual-card, GET /virtual-card (balance from DB, metadata from Stripe)
+- Phase 4: Virtual card test suite (7 tests)
 
 ### Changed
 (nothing yet)
