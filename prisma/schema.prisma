@@ -1,0 +1,151 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  linkedCards   LinkedCard[]
+  virtualCard   VirtualCard?
+  splitConfig   SplitConfig?
+  topups        Topup[]
+  refreshTokens RefreshToken[]
+
+  @@map("users")
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  tokenHash String   @unique @map("token_hash")
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("refresh_tokens")
+}
+
+model LinkedCard {
+  id                    String   @id @default(uuid())
+  userId                String   @map("user_id")
+  // Plaid access token encrypted at rest — never log raw value
+  plaidAccessTokenEnc   String   @map("plaid_access_token_enc")
+  plaidAccountId        String   @map("plaid_account_id")
+  institutionName       String   @map("institution_name")
+  last4                 String
+  createdAt             DateTime @default(now()) @map("created_at")
+
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  splitConfigItems SplitConfigItem[]
+  topupLineItems  TopupLineItem[]
+
+  @@unique([userId, plaidAccountId])
+  @@map("linked_cards")
+}
+
+model VirtualCard {
+  id            String   @id @default(uuid())
+  userId        String   @unique @map("user_id")
+  stripeCardId  String   @unique @map("stripe_card_id")
+  // Balance stored in cents (integer) — never float
+  balanceCents  Int      @default(0) @map("balance_cents")
+  status        VirtualCardStatus @default(ACTIVE)
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("virtual_cards")
+}
+
+enum VirtualCardStatus {
+  ACTIVE
+  FROZEN
+  CANCELLED
+}
+
+model SplitConfig {
+  id        String   @id @default(uuid())
+  userId    String   @unique @map("user_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user  User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items SplitConfigItem[]
+
+  @@map("split_configs")
+}
+
+model SplitConfigItem {
+  id            String @id @default(uuid())
+  splitConfigId String @map("split_config_id")
+  linkedCardId  String @map("linked_card_id")
+  // Percentage as integer 0-100; all items for a config must sum to 100
+  percentage    Int
+
+  splitConfig SplitConfig @relation(fields: [splitConfigId], references: [id], onDelete: Cascade)
+  linkedCard  LinkedCard  @relation(fields: [linkedCardId], references: [id], onDelete: Cascade)
+
+  @@unique([splitConfigId, linkedCardId])
+  @@map("split_config_items")
+}
+
+model Topup {
+  id          String      @id @default(uuid())
+  userId      String      @map("user_id")
+  // Amount in cents — never float
+  amountCents Int         @map("amount_cents")
+  status      TopupStatus @default(PENDING)
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lineItems TopupLineItem[]
+
+  @@map("topups")
+}
+
+enum TopupStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  ROLLED_BACK
+}
+
+model TopupLineItem {
+  id              String         @id @default(uuid())
+  topupId         String         @map("topup_id")
+  linkedCardId    String         @map("linked_card_id")
+  // Amount in cents — never float
+  amountCents     Int            @map("amount_cents")
+  status          LineItemStatus @default(PENDING)
+  // Opaque ID from Plaid Transfer — stored for reversal if needed
+  plaidTransferId String?        @map("plaid_transfer_id")
+  createdAt       DateTime       @default(now()) @map("created_at")
+  updatedAt       DateTime       @updatedAt @map("updated_at")
+
+  topup      Topup      @relation(fields: [topupId], references: [id], onDelete: Cascade)
+  linkedCard LinkedCard @relation(fields: [linkedCardId], references: [id], onDelete: Cascade)
+
+  @@map("topup_line_items")
+}
+
+enum LineItemStatus {
+  PENDING
+  CHARGED
+  REFUNDED
+  FAILED
+}

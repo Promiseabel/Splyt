@@ -13,13 +13,13 @@
 ---
 
 ## Infrastructure & Environment
-- [ ] TODO — Initialize Node.js + TypeScript project — backend-engineer
-- [ ] TODO — Set up Prisma + PostgreSQL connection — backend-engineer
-- [ ] TODO — Configure Stripe Issuing sandbox — backend-engineer
-- [ ] TODO — Configure Plaid sandbox — backend-engineer
-- [ ] TODO — Set up environment variable management (.env + validation) — backend-engineer
-- [ ] TODO — Configure Jest for testing — backend-engineer
-- [ ] TODO — Set up ESLint + Prettier — backend-engineer
+- [x] DONE — Initialize Node.js + TypeScript project — backend-engineer — 2026-04-03
+- [x] DONE — Set up Prisma + PostgreSQL connection — backend-engineer — 2026-04-03
+- [x] DONE — Configure Stripe Issuing sandbox — backend-engineer — 2026-04-03
+- [x] DONE — Configure Plaid sandbox — backend-engineer — 2026-04-03
+- [x] DONE — Set up environment variable management (.env + validation) — backend-engineer — 2026-04-03
+- [x] DONE — Configure Jest for testing — backend-engineer — 2026-04-03
+- [x] DONE — Set up ESLint + Prettier — backend-engineer — 2026-04-03
 - [ ] TODO — Initialize GitHub repo + branch protection rules — (manual)
 
 ## Auth

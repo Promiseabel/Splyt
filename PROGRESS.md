@@ -20,7 +20,23 @@
 - [x] docs/ directory created (ARCHITECTURE.md, ADR.md, API_SPEC.md, COMPLIANCE.md)
 
 ## Phase 1 — Infrastructure
-(Agents will update here)
+- [x] [2026-04-03] [backend-engineer] package.json — Node.js 20+, TypeScript, Express, Prisma, Stripe, Plaid, Zod, JWT, bcryptjs — DONE
+- [x] [2026-04-03] [backend-engineer] tsconfig.json — strict mode, ES2022, commonjs — DONE
+- [x] [2026-04-03] [backend-engineer] prisma/schema.prisma — all V1 tables: users, refresh_tokens, linked_cards, virtual_cards, split_configs, split_config_items, topups, topup_line_items — DONE
+- [x] [2026-04-03] [backend-engineer] src/config/env.ts — Zod-validated env schema; exits on missing/invalid vars — DONE
+- [x] [2026-04-03] [backend-engineer] src/lib/prisma.ts — singleton PrismaClient — DONE
+- [x] [2026-04-03] [backend-engineer] src/lib/stripe.ts — Stripe client initialized from env — DONE
+- [x] [2026-04-03] [backend-engineer] src/lib/plaid.ts — PlaidApi client initialized from env — DONE
+- [x] [2026-04-03] [backend-engineer] src/middleware/auth.ts — JWT requireAuth middleware — DONE
+- [x] [2026-04-03] [backend-engineer] src/middleware/errorHandler.ts — Zod + generic error handler — DONE
+- [x] [2026-04-03] [backend-engineer] src/routes/health.ts — GET /api/v1/health with DB ping — DONE
+- [x] [2026-04-03] [backend-engineer] src/app.ts — Express app with rate limiter — DONE
+- [x] [2026-04-03] [backend-engineer] src/index.ts — server entrypoint with graceful shutdown — DONE
+- [x] [2026-04-03] [backend-engineer] jest.config.ts — ts-jest, node environment — DONE
+- [x] [2026-04-03] [backend-engineer] eslint.config.mjs — TypeScript ESLint + prettier — DONE
+- [x] [2026-04-03] [backend-engineer] .env.example — all required env vars documented — DONE
+- [x] [2026-04-03] [backend-engineer] src/__tests__/health.test.ts — health endpoint tests (mocked DB) — DONE
+- Open questions: Plaid Transfer vs Auth product for card charging — confirm before Phase 3
 
 ## Phase 2 — Auth
 (Agents will update here)
