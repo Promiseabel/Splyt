@@ -30,6 +30,9 @@
 - Phase 4: Virtual card service — Stripe Issuing cardholder + card creation, one per user
 - Phase 4: Virtual card routes — POST /virtual-card, GET /virtual-card (balance from DB, metadata from Stripe)
 - Phase 4: Virtual card test suite (7 tests)
+- Phase 5: Split config service — set/replace (atomic transaction), get, validate sum=100
+- Phase 5: Split config routes — POST /split-config, GET /split-config
+- Phase 5: Split config test suite (13 tests) including float rejection, duplicate card IDs, ownership guard
 
 ### Changed
 (nothing yet)

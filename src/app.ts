@@ -5,6 +5,7 @@ import healthRouter from './routes/health';
 import authRouter from './routes/auth';
 import cardsRouter from './routes/cards';
 import virtualCardRouter from './routes/virtualCard';
+import splitConfigRouter from './routes/splitConfig';
 
 const app = express();
 
@@ -25,6 +26,7 @@ app.use('/api/v1', healthRouter);
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1', cardsRouter);
 app.use('/api/v1', virtualCardRouter);
+app.use('/api/v1', splitConfigRouter);
 
 // 404
 app.use((_req, res) => {

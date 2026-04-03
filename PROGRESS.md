@@ -56,7 +56,9 @@
 - [x] [2026-04-03] [backend-engineer] src/__tests__/virtualCard.test.ts — 7 tests: create flow, duplicate guard, cardholder-before-card ordering, balance from DB not Stripe, 404, auth — DONE
 
 ## Phase 5 — Split Config
-(Agents will update here)
+- [x] [2026-04-03] [backend-engineer] src/services/splitConfig.service.ts — setSplitConfig (validate → ownership check → atomic delete+create in tx), getSplitConfig, getSplitsForTopup (internal) — DONE
+- [x] [2026-04-03] [backend-engineer] src/routes/splitConfig.ts — POST /split-config (422 on invalid %, 404 on unknown card), GET /split-config (404 if unset); both behind requireAuth — DONE
+- [x] [2026-04-03] [backend-engineer] src/__tests__/splitConfig.test.ts — 13 tests: valid splits, replace-atomicity, sum≠100, floats, duplicates, card ownership, empty array, no-token-in-response — DONE
 
 ## Phase 6 — Top-Up Engine
 (Agents will update here)

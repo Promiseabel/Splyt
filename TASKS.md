@@ -40,9 +40,9 @@
 - [x] DONE — GET /virtual-card (fetch details + balance) — backend-engineer — 2026-04-03
 
 ## Split Configuration
-- [ ] TODO — POST /split-config (set or update split percentages) — backend-engineer
-- [ ] TODO — GET /split-config — backend-engineer
-- [ ] TODO — Validation: percentages must sum to 100 — backend-engineer
+- [x] DONE — POST /split-config (set or update split percentages) — backend-engineer — 2026-04-03
+- [x] DONE — GET /split-config — backend-engineer — 2026-04-03
+- [x] DONE — Validation: percentages must sum to 100 — backend-engineer — 2026-04-03
 
 ## Top-Up Engine (Core V1 Logic)
 - [ ] TODO — POST /topup — backend-engineer
