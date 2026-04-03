@@ -30,10 +30,10 @@
 - [x] DONE — JWT middleware — backend-engineer — 2026-04-03 (Phase 1)
 
 ## Card Linking (Plaid)
-- [ ] TODO — GET /plaid/link-token — backend-engineer
-- [ ] TODO — POST /plaid/exchange-token — backend-engineer
-- [ ] TODO — GET /cards — backend-engineer
-- [ ] TODO — DELETE /cards/:id — backend-engineer
+- [x] DONE — GET /plaid/link-token — backend-engineer — 2026-04-03
+- [x] DONE — POST /plaid/exchange-token — backend-engineer — 2026-04-03
+- [x] DONE — GET /cards — backend-engineer — 2026-04-03
+- [x] DONE — DELETE /cards/:id — backend-engineer — 2026-04-03
 
 ## Virtual Card (Stripe Issuing)
 - [ ] TODO — POST /virtual-card (create) — backend-engineer

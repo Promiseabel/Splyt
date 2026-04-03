@@ -45,7 +45,10 @@
 - [x] [2026-04-03] [backend-engineer] src/app.ts — wired /api/v1/auth router — DONE
 
 ## Phase 3 — Card Linking
-(Agents will update here)
+- [x] [2026-04-03] [backend-engineer] src/lib/encrypt.ts — AES-256-GCM encrypt/decrypt for Plaid tokens; random IV per call; GCM auth tag tamper detection — DONE
+- [x] [2026-04-03] [backend-engineer] src/services/cards.service.ts — createLinkToken, exchangeToken (encrypt before store), listCards (no token in response), deleteCard (Plaid revoke + DB delete), getAccessToken (internal) — DONE
+- [x] [2026-04-03] [backend-engineer] src/routes/cards.ts — GET /plaid/link-token, POST /plaid/exchange-token, GET /cards, DELETE /cards/:id; all behind requireAuth — DONE
+- [x] [2026-04-03] [backend-engineer] src/__tests__/cards.test.ts — 12 tests covering all routes + encrypt/decrypt round-trip, tamper detection, no-token-in-response assertion — DONE
 
 ## Phase 4 — Virtual Card
 (Agents will update here)

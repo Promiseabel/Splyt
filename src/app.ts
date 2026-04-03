@@ -3,6 +3,7 @@ import rateLimit from 'express-rate-limit';
 import { errorHandler } from './middleware/errorHandler';
 import healthRouter from './routes/health';
 import authRouter from './routes/auth';
+import cardsRouter from './routes/cards';
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use(
 // Routes
 app.use('/api/v1', healthRouter);
 app.use('/api/v1/auth', authRouter);
+app.use('/api/v1', cardsRouter);
 
 // 404
 app.use((_req, res) => {

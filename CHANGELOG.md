@@ -23,6 +23,10 @@
 - Phase 2: Auth routes — POST /auth/register, /login, /refresh, /logout with per-route rate limiting
 - Phase 2: Refresh tokens hashed (SHA-256) before DB storage; never stored raw
 - Phase 2: Auth test suite (11 tests, all mocked)
+- Phase 3: AES-256-GCM encryption utility for Plaid access tokens (random IV, auth tag)
+- Phase 3: Card linking service — Plaid link-token, exchange-token, list, delete with Plaid revocation
+- Phase 3: Card routes — GET /plaid/link-token, POST /plaid/exchange-token, GET /cards, DELETE /cards/:id
+- Phase 3: Card test suite (12 tests) including encrypt round-trip and tamper detection
 
 ### Changed
 (nothing yet)
