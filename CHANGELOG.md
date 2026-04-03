@@ -33,6 +33,11 @@
 - Phase 5: Split config service — set/replace (atomic transaction), get, validate sum=100
 - Phase 5: Split config routes — POST /split-config, GET /split-config
 - Phase 5: Split config test suite (13 tests) including float rejection, duplicate card IDs, ownership guard
+- Phase 6: Split calculator — integer-only, floor + remainder-to-largest, exact total guaranteed
+- Phase 6: Top-up engine — sequential Plaid Transfer debits, full rollback (cancel + REFUNDED) on any failure
+- Phase 6: Balance credited atomically only after all charges succeed
+- Phase 6: Top-up routes — POST /topup, GET /topup/history
+- Phase 6: Test suite (23 tests across calculator + engine): rollback correctness, guard conditions, proportional amounts
 
 ### Changed
 (nothing yet)

@@ -61,7 +61,11 @@
 - [x] [2026-04-03] [backend-engineer] src/__tests__/splitConfig.test.ts — 13 tests: valid splits, replace-atomicity, sum≠100, floats, duplicates, card ownership, empty array, no-token-in-response — DONE
 
 ## Phase 6 — Top-Up Engine
-(Agents will update here)
+- [x] [2026-04-03] [backend-engineer] src/services/splitCalculator.ts — integer-only allocation; floor per card; remainder to highest-percentage card; exact total guaranteed — DONE
+- [x] [2026-04-03] [backend-engineer] src/services/topup.service.ts — executeTopup: guard checks (virtual card, split config), calculate allocations, create PENDING topup, sequential Plaid Transfer debits, rollback (transferCancel + REFUNDED) on any failure, atomic SUCCESS + balance credit via $transaction — DONE
+- [x] [2026-04-03] [backend-engineer] src/routes/topup.ts — POST /topup (min $1, integer cents only, 422 on rollback/missing prereqs), GET /topup/history — DONE
+- [x] [2026-04-03] [backend-engineer] src/__tests__/splitCalculator.test.ts — 9 tests: 60/40, 50/50, 100%, remainder cases, exact-total invariant across 6 awkward amounts, tie-break, negative/zero guards — DONE
+- [x] [2026-04-03] [backend-engineer] src/__tests__/topup.test.ts — 14 tests: proportional amounts, sequential order, rollback cancels prior transfer, balance NOT credited on rollback, all guard conditions, history — DONE
 
 ## Phase 7 — Frontend
 (Agents will update here)

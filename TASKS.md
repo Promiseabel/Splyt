@@ -45,11 +45,11 @@
 - [x] DONE — Validation: percentages must sum to 100 — backend-engineer — 2026-04-03
 
 ## Top-Up Engine (Core V1 Logic)
-- [ ] TODO — POST /topup — backend-engineer
-- [ ] TODO — Split calculation logic (cents, rounding) — backend-engineer
-- [ ] TODO — Sequential charge execution with rollback — backend-engineer
-- [ ] TODO — Virtual card balance update after success — backend-engineer
-- [ ] TODO — Top-up history endpoint GET /topup/history — backend-engineer
+- [x] DONE — POST /topup — backend-engineer — 2026-04-03
+- [x] DONE — Split calculation logic (cents, rounding) — backend-engineer — 2026-04-03
+- [x] DONE — Sequential charge execution with rollback — backend-engineer — 2026-04-03
+- [x] DONE — Virtual card balance update after success — backend-engineer — 2026-04-03
+- [x] DONE — Top-up history endpoint GET /topup/history — backend-engineer — 2026-04-03
 
 ## Frontend (Web MVP)
 - [ ] TODO — Auth screens (register, login) — frontend-engineer
